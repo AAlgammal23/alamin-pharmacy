@@ -212,8 +212,8 @@ fun ConsultationScreen(
                     if (phone.isNotBlank()) append("\nالهاتف: $phone")
                     append("\n\nالاستفسار:\n$symptoms")
                 }
-                // ✅ استخدام رقم واتساب ثابت
-                val whatsappNumber = "967777777777"  // غيّر للرقم الفعلي للصيدلية
+                // ✅ رقم الاستشارات الطبية
+                val whatsappNumber = "774973636"
                 ContactUtils.openWhatsApp(context, whatsappNumber, msg)
             },
             enabled = canSubmit,
