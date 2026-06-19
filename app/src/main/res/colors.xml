@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand: turquoise + white -->
+    <color name="brand_primary">#5EE6D3</color>      <!-- turquoise light -->
+    <color name="brand_primary_dark">#1FBFB0</color>  <!-- turquoise deep -->
+    <color name="brand_accent">#A7F3E6</color>        <!-- mint -->
+    <color name="brand_white">#FFFFFF</color>
+    <color name="brand_ink">#0F2A2E</color>          <!-- dark text on light -->
+    <color name="brand_ink_soft">#49686C</color>
+    <color name="brand_surface">#F4FBF9</color>      <!-- very pale turquoise -->
+    <color name="brand_outline">#CFE9E3</color>
+    <color name="brand_warning">#F2A03D</color>
+    <color name="brand_error">#E5484D</color>
+
+    <color name="status_bar">#1FBFB0</color>
+</resources>

@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">صيدلية الأمين الحديثة</string>
+    <string name="app_tagline">صحتك أمانة عندنا</string>
+    <string name="tab_home">الرئيسية</string>
+    <string name="tab_drugs">الأقسام</string>
+    <string name="tab_prescription">رفع وصفة</string>
+    <string name="tab_reminder">منبه الدواء</string>
+    <string name="tab_account">حسابي</string>
+
+    <string name="consult_doctor">إستشارة الطبيب</string>
+    <string name="upload_prescription">إرفاق وصفة طبية</string>
+    <string name="shop_by_section">تسوق حسب القسم</string>
+
+    <string name="cat_medicine">الأدوية</string>
+    <string name="cat_cosmetics">مستحضرات التجميل</string>
+    <string name="cat_baby">مستلزمات الأطفال</string>
+    <string name="cat_personal">العناية الشخصية</string>
+    <string name="cat_vitamins">الفيتامينات والمكملات الغذائية</string>
+
+    <string name="section_prescription">الأدوية الوصفية</string>
+    <string name="section_otc">الأدوية الذاتية</string>
+
+    <string name="contact_us">تواصل معنا</string>
+    <string name="view_all">عرض الكل</string>
+    <string name="featured_products">منتجات مميزة</string>
+    <string name="new_products">منتجات جديدة</string>
+
+    <string name="contact_whatsapp">واتساب</string>
+    <string name="contact_phone">اتصال</string>
+    <string name="contact_email">البريد الإلكتروني</string>
+    <string name="contact_address">العنوان</string>
+    <string name="contact_facebook">فيسبوك</string>
+
+    <string name="prescription_intro_title">رفع الوصفة الطبية</string>
+    <string name="prescription_intro_msg">يرجى ملاحظة أن تكون الوصفة مختومة. أقصى حجم للصورة المرفوعة: 10 ميجا. الصور المقبولة هي: jpg, png.</string>
+    <string name="prescription_notes">ملاحظات</string>
+    <string name="prescription_notes_hint">ملاحظات إضافية</string>
+    <string name="prescription_upload">رفع الوصفة الطبية</string>
+
+    <string name="reminder_title">منبه الدواء</string>
+    <string name="add_reminder">إضافة منبه</string>
+
+    <string name="account_title">حسابي</string>
+    <string name="about_pharmacy">عن الصيدلية</string>
+    <string name="working_hours">ساعات العمل</string>
+    <string name="working_hours_value">يومياً من 8 صباحاً - 11 مساءً</string>
+    <string name="address_value">اليمن - إب - مدينة القاعدة</string>
+    <string name="email_value">alaminmodern.ph@gmail.com</string>
+    <string name="whatsapp_value">+967774973636</string>
+    <string name="phone_value">+967774973636</string>
+    <string name="facebook_value">صفحتنا</string>
+</resources>
