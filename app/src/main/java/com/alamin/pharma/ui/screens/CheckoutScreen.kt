@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape  // ✅ إضافة الاستيراد المفقود
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -24,7 +25,6 @@ import androidx.compose.material.icons.outlined.ArrowBack
 import androidx.compose.material.icons.outlined.CheckCircle
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.LocalShipping
-import androidx.compose.material.icons.outlined.Payments
 import androidx.compose.material.icons.outlined.Phone
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -144,18 +144,28 @@ fun CheckoutScreen(
                         }
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Box(
-                                modifier = Modifier.size(28.dp).clip(CircleShape).background(Color(0xFFE6F7F4))
+                                modifier = Modifier
+                                    .size(28.dp)
+                                    .clip(CircleShape)
+                                    .background(Color(0xFFE6F7F4))
                                     .clickable { vm.updateCartQty(item.productId, item.qty - 1) },
                                 contentAlignment = Alignment.Center
-                            ) { Icon(Icons.Filled.Remove, contentDescription = null, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(16.dp)) }
+                            ) {
+                                Icon(Icons.Filled.Remove, contentDescription = null, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(16.dp))
+                            }
                             Spacer(Modifier.width(8.dp))
                             Text("${item.qty}", fontWeight = FontWeight.Bold)
                             Spacer(Modifier.width(8.dp))
                             Box(
-                                modifier = Modifier.size(28.dp).clip(CircleShape).background(MaterialTheme.colorScheme.primary)
+                                modifier = Modifier
+                                    .size(28.dp)
+                                    .clip(CircleShape)
+                                    .background(MaterialTheme.colorScheme.primary)
                                     .clickable { vm.updateCartQty(item.productId, item.qty + 1) },
                                 contentAlignment = Alignment.Center
-                            ) { Icon(Icons.Filled.Add, contentDescription = null, tint = Color.White, modifier = Modifier.size(16.dp)) }
+                            ) {
+                                Icon(Icons.Filled.Add, contentDescription = null, tint = Color.White, modifier = Modifier.size(16.dp))
+                            }
                         }
                     }
                 }
