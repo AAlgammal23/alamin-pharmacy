@@ -1,0 +1,41 @@
+{
+  "_comment_": "⚠️ هذا ملف نموذجي. يجب استبداله بالإعدادات الحقيقية من Firebase Console",
+  "_steps_": [
+    "1. افتح https://console.firebase.google.com",
+    "2. أنشئ مشروع جديد باسم 'alamin-pharma'",
+    "3. أضف تطبيق Android باسم 'com.alamin.pharma'",
+    "4. حمّل google-services.json الحقيقي وضعه في app/",
+    "5. فعّل Authentication > Email/Password",
+    "6. فعّل Firestore Database (production mode)",
+    "7. من Firestore > Rules الصق محتوى firestore.rules",
+    "8. من Firestore > Indexes الصق محتوى firestore.indexes.json",
+    "9. في Authentication > Users أضف حسابك كمدير"
+  ],
+  "project_info": {
+    "project_number": "1234567890",
+    "project_id": "alamin-pharma-XXXXX",
+    "storage_bucket": "alamin-pharma-XXXXX.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1234567890:android:abcdef1234567890",
+        "android_client_info": {
+          "package_name": "com.alamin.pharma"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
