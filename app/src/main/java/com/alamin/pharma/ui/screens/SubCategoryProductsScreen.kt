@@ -29,6 +29,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember  // ✅ استيراد remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -49,8 +50,9 @@ fun SubCategoryProductsScreen(
 ) {
     val allSubs by vm.subCategories.collectAsState()
     val sub = allSubs.firstOrNull { it.id == subCategoryId }
-    val productsFlow = remember(subCategoryId) { vm.repo.productsBySubFlow(subCategoryId) }
-    val products by productsFlow.collectAsState(initial = emptyList())
+    
+    // ✅ تصحيح استخدام remember مع Flow
+    val products by vm.repo.productsBySubFlow(subCategoryId).collectAsState(initial = emptyList())
 
     Column(
         modifier = Modifier
@@ -78,54 +80,90 @@ fun SubCategoryProductsScreen(
                 verticalArrangement = Arrangement.spacedBy(10.dp)
             ) {
                 items(products) { p ->
-                    Card(
-                        shape = RoundedCornerShape(12.dp),
-                        colors = CardDefaults.cardColors(containerColor = Color.White),
-                        elevation = CardDefaults.cardElevation(1.dp),
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable { onProductClick(p.id) }
-                    ) {
-                        Row(modifier = Modifier.padding(10.dp), verticalAlignment = Alignment.CenterVertically) {
-                            AsyncImage(
-                                model = p.imageUrl,
-                                contentDescription = p.name,
-                                modifier = Modifier
-                                    .size(80.dp)
-                                    .clip(RoundedCornerShape(10.dp))
-                                    .background(Color(0xFFE6F7F4)),
-                                contentScale = ContentScale.Crop
-                            )
-                            Spacer(Modifier.width(12.dp))
-                            Column(modifier = Modifier.weight(1f)) {
-                                Text(p.name, fontSize = 14.sp, fontWeight = FontWeight.SemiBold, color = MaterialTheme.colorScheme.onBackground, maxLines = 2)
-                                if (p.description.isNotBlank()) {
-                                    Text(p.description, fontSize = 11.sp, color = MaterialTheme.colorScheme.onSurfaceVariant, maxLines = 1)
-                                }
-                                Spacer(Modifier.height(4.dp))
-                                Row(verticalAlignment = Alignment.CenterVertically) {
-                                    Text("${p.priceYer} ر.ي", fontSize = 14.sp, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.primary)
-                                    if (p.oldPriceYer > p.priceYer) {
-                                        Spacer(Modifier.width(6.dp))
-                                        Text("${p.oldPriceYer}", fontSize = 11.sp, color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                            textDecoration = androidx.compose.ui.text.style.TextDecoration.LineThrough)
-                                    }
-                                }
-                            }
-                            Spacer(Modifier.width(8.dp))
-                            Box(
-                                modifier = Modifier
-                                    .size(36.dp)
-                                    .clip(RoundedCornerShape(10.dp))
-                                    .background(MaterialTheme.colorScheme.primary)
-                                    .clickable { vm.addToCart(p) },
-                                contentAlignment = Alignment.Center
-                            ) {
-                                Icon(Icons.Filled.Add, contentDescription = "add", tint = Color.White)
-                            }
-                        }
+                    ProductCard(
+                        product = p,
+                        onProductClick = { onProductClick(p.id) },
+                        onAddToCart = { vm.addToCart(p) }
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun ProductCard(
+    product: com.alamin.pharma.data.Product,
+    onProductClick: () -> Unit,
+    onAddToCart: () -> Unit
+) {
+    Card(
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.White),
+        elevation = CardDefaults.cardElevation(1.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { onProductClick() }
+    ) {
+        Row(
+            modifier = Modifier.padding(10.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            AsyncImage(
+                model = product.imageUrl,
+                contentDescription = product.name,
+                modifier = Modifier
+                    .size(80.dp)
+                    .clip(RoundedCornerShape(10.dp))
+                    .background(Color(0xFFE6F7F4)),
+                contentScale = ContentScale.Crop
+            )
+            Spacer(Modifier.width(12.dp))
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    product.name,
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.SemiBold,
+                    color = MaterialTheme.colorScheme.onBackground,
+                    maxLines = 2
+                )
+                if (product.description.isNotBlank()) {
+                    Text(
+                        product.description,
+                        fontSize = 11.sp,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        maxLines = 1
+                    )
+                }
+                Spacer(Modifier.height(4.dp))
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        "${product.priceYer} ر.ي",
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                    if (product.oldPriceYer > product.priceYer) {
+                        Spacer(Modifier.width(6.dp))
+                        Text(
+                            "${product.oldPriceYer}",
+                            fontSize = 11.sp,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            textDecoration = androidx.compose.ui.text.style.TextDecoration.LineThrough
+                        )
                     }
                 }
+            }
+            Spacer(Modifier.width(8.dp))
+            Box(
+                modifier = Modifier
+                    .size(36.dp)
+                    .clip(RoundedCornerShape(10.dp))
+                    .background(MaterialTheme.colorScheme.primary)
+                    .clickable { onAddToCart() },
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(Icons.Filled.Add, contentDescription = "add", tint = Color.White)
             }
         }
     }
