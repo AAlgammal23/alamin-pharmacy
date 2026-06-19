@@ -16,7 +16,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width  // ✅ إضافة الاستيراد المفقود
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -52,7 +52,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.alamin.pharma.R
-import com.alamin.pharma.data.ContactInfo
 import com.alamin.pharma.utils.ContactUtils
 
 @Composable
@@ -92,7 +91,7 @@ fun PrescriptionScreen(onBack: () -> Unit) {
                 color = MaterialTheme.colorScheme.onBackground
             )
             Spacer(Modifier.weight(1f))
-            Spacer(Modifier.width(48.dp))  // ✅ الآن يعمل بشكل صحيح
+            Spacer(Modifier.width(48.dp))
         }
 
         Column(
@@ -219,8 +218,8 @@ fun PrescriptionScreen(onBack: () -> Unit) {
                         if (phone.isNotBlank()) append("\nالهاتف: $phone")
                         if (notes.isNotBlank()) append("\nملاحظات: $notes")
                     }
-                    // ✅ استخدام رقم واتساب ثابت للوصفات الطبية
-                    val whatsappNumber = "967777777777"  // رقم واتساب خاص بالوصفات
+                    // ✅ رقم الوصفات الطبية
+                    val whatsappNumber = "774973636"
                     ContactUtils.openWhatsApp(context, whatsappNumber, msg)
                     if (imageUri != null) {
                         ContactUtils.shareImageUri(context, imageUri!!)
