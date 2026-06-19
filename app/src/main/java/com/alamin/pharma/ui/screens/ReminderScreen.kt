@@ -5,6 +5,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,10 +19,10 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add  // ✅ استيراد Plus من Icons.Filled
 import androidx.compose.material.icons.outlined.Alarm
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.Medication
-import androidx.compose.material.icons.outlined.Plus
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -113,7 +114,7 @@ fun ReminderScreen(modifier: Modifier = Modifier) {
             } else {
                 LazyColumn(
                     modifier = Modifier.fillMaxSize(),
-                    contentPadding = androidx.compose.foundation.layout.PaddingValues(
+                    contentPadding = PaddingValues(
                         start = 16.dp, end = 16.dp, bottom = 100.dp
                     ),
                     verticalArrangement = Arrangement.spacedBy(10.dp)
@@ -142,7 +143,7 @@ fun ReminderScreen(modifier: Modifier = Modifier) {
                 .align(Alignment.BottomEnd)
                 .padding(24.dp)
         ) {
-            Icon(Icons.Outlined.Plus, contentDescription = "add")
+            Icon(Icons.Filled.Add, contentDescription = "add")  // ✅ استخدام Icons.Filled.Add
         }
     }
 
