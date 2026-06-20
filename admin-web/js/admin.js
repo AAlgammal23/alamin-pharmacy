@@ -1,13 +1,21 @@
-// ============ FIREBASE CONFIG ============
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
-};
 
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyAhl8TvXaE2sm8VkH2TTljVdsqmdcC2Afs",
+  authDomain: "alamin-pharma.firebaseapp.com",
+  projectId: "alamin-pharma",
+  storageBucket: "alamin-pharma.firebasestorage.app",
+  messagingSenderId: "773527249793",
+  appId: "1:773527249793:web:87e12e986e7cf72cb73e80",
+  measurementId: "G-ZSQ0HQPLJ3"
+};
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import {
   getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut
