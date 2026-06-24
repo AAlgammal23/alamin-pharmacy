@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "773527249793",
+    "project_id": "alamin-pharma",
+    "storage_bucket": "alamin-pharma.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:773527249793:android:3b7754749390f7adb73e80",
+        "android_client_info": {
+          "package_name": "com.alamin.pharma"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKeVt3iYqqhNUpsMStGyOlMxxjDSnbSpI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
